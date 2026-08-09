@@ -2,15 +2,22 @@
 
 The Guide teaches the full software development lifecycle with Claude Code — idea to production to operations. Each principle is stated generically, then grounded in Example Boxes drawn from real Reference Repos. This repo is a Living Lab: the Guide ships through the same workflow it teaches.
 
+## The premise: clean code is agent leverage
+
+AI agents amplify the codebase they work in. Code that is easy to change — modular, well named, with clear seams and honest interfaces — lets an agent find the right place to work without dragging half the repo into its context. Code that is easy to test gives the agent a feedback loop: it can make a change, run the tests, and know on its own whether the change is correct. The principles of good software design (small units, separation of concerns, dependencies pointing inward, tests that pin behavior) were written for human teams, but they pay out double with agents: an agent does not apply architectural judgment on its own, so the structure it follows is the structure your codebase and conventions give it. Clean in, clean out. Measured on real tasks, agents working in cleaner code use fewer tokens and revisit far fewer files to finish the same job.
+
+[Chapter 1](chapters/01-why-this-works.md) develops this thesis in full.
+
 ## Prerequisites
 
-Before you apply the Guide, make sure you are comfortable with:
+Basic working knowledge is enough — the Guide does not assume expertise in any of these:
 
 - DevOps basics
 - CI/CD
 - The command line
 - Bash
 - Git
+- Claude Code — installed and used at least once, with a rough idea of its extension points: hooks, skills, plugins, MCP servers, and LSP integrations. The Guide teaches how to use them well.
 
 ## Chapters
 
