@@ -11,5 +11,7 @@
     "MD046": false
   },
   "globs": ["**/*.md"],
-  "ignores": ["site/**", "node_modules/**"]
+  // .claude/skills/** carries vendored skill copies — derived files that
+  // scripts/sync-skills.py overwrites wholesale, so lint edits cannot stick.
+  "ignores": ["site/**", "node_modules/**", ".claude/skills/**"]
 }
