@@ -54,3 +54,5 @@ nav:
       - "6. Validation": chapters/06-validation.md
       - "7. Review and merge": chapters/07-review-and-merge.md
       - "8. Delivery and operations": chapters/08-delivery-and-operations.md
+  - Contributing:
+      - Writing standards: contributing/writing-standards.md
