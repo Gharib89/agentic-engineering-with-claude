@@ -8,7 +8,7 @@ Not all green means the same thing. A type check proves the code is coherent; a 
 
 ![The verification ladder: types prove coherence in milliseconds, unit tests prove intent in seconds, end-to-end runs prove behavior in minutes, a live instance proves reality — evidence strengthens climbing up, feedback cheapens climbing down](../assets/diagrams/verification-ladder.svg)
 
-The principle: **your Verification Medium is the highest rung the agent can climb alone.** The lower rungs come nearly free with any modern toolchain; the top rungs are a deliberate investment — an environment to run against, a harness to drive it, a way to read the result mechanically. Every project has its own ceiling, and the medium is project-specific because the truth is: a CLI's truth fits in assertions, a report's truth is partly a picture, a docs site's truth is a built page. Deciding the rung is a planning act — [Chapter 4](04-from-idea-to-plan.md) names the medium while shaping the spec, not after the build.
+The principle: **your Verification Medium is the highest rung the agent can climb alone.** The lower rungs come nearly free with any modern toolchain; the top rungs are a deliberate investment — an environment to run against, a harness to drive it, a way to read the result mechanically. Every project has its own ceiling, and the medium is project-specific because each project's truth lives somewhere different: a CLI's truth fits in assertions, a report's truth is partly a picture, a docs site's truth is a built page. Deciding the rung is a planning act — [Chapter 4](04-from-idea-to-plan.md) names the medium while shaping the spec, not after the build.
 
 !!! example "crm — the top rung is a live Dynamics instance"
     `crm`, a command-line client for Microsoft Dynamics 365, climbs the whole
@@ -20,7 +20,8 @@ The principle: **your Verification Medium is the highest rung the agent can clim
     re-running the command by hand.
 
 !!! example "this repo — a strict build below, the live site above"
-    The Guide's ladder has two working rungs: `mkdocs build --strict` catches
+    In this repo — the Guide's own source, and one of its Reference Repos —
+    the ladder has two working rungs: `mkdocs build --strict` catches
     broken links, missing pages, and nav errors locally in seconds, and the
     published site is the live-instance rung — after a merge, the Docs Lane
     fetches the changed page from the public URL and looks for the new text.
@@ -72,8 +73,9 @@ The principle: **document each known lie next to the check it belongs to, in the
 !!! example "this repo — a green build around a broken page"
     `mkdocs build --strict` verifies structure, not rendering: an admonition
     body indented three spaces instead of four builds clean and renders as a
-    plain paragraph. That lie is written into the repo's docs-tooling notes,
-    and it is why diagram work carries its own render-verification step — the
+    plain paragraph. That lie is written into the repo's
+    [docs-tooling notes](../agents/docs-tooling.md), and it is why diagram
+    work carries its own render-verification step — the
     strict build simply cannot see what a reader sees.
 
 ## From verified to merged
