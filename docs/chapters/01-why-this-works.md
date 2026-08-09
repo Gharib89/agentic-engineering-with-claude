@@ -26,8 +26,8 @@ The instinct with a new tool is to watch it: read every diff as it streams by, i
 Building that loop means answering one question per project: what evidence proves a change is done? The Guide calls the answer the **Verification Medium** — a test suite for a CLI, a rendered page for a report, a strict build for a docs site. Once the medium exists, the human's job moves up a level: define the goal and the check, then judge the verified result. The agent loops against the medium on its own; you review outcomes, not keystrokes. [Chapter 6](06-validation.md) is entirely about choosing and sharpening this medium.
 
 !!! example "cc-otel — when the check is a picture, not a test"
-    `cc-otel` is one of the Guide's Reference Repos: a telemetry project that
-    collects Claude Code usage data and lands it in Power BI reports. No
+    `cc-otel`, another Reference Repo, is a telemetry project that collects
+    Claude Code usage data and lands it in Power BI reports. No
     assertion can say whether a report page *looks* right, so its Verification
     Medium is visual: the agent renders the page and inspects the screenshot.
     The loop is the same — change, check, iterate — only the medium differs
