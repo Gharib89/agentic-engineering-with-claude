@@ -27,8 +27,8 @@ The principle: **every reviewer owns an explicit lane, and the loop has a define
     The Docs Lane — this repo's shipping workflow — defines convergence in
     one sentence of its skill: fix every finding or disposition it with a
     reason, then re-run `mkdocs build --strict`. A run cannot open its PR
-    while a finding sits in limbo, and a dispositioned finding carries its
-    reason into the PR, where the next reviewer can overrule it.
+    while a finding sits in limbo: every finding is fixed and re-gated, or
+    declined with its reason on record.
 
 ## The human merge gate — and when to drop it
 
@@ -46,12 +46,13 @@ The principle: **keep the human merge gate by default; drop it only as a recorde
 !!! example "this repo — Auto-merge, with its limits written down"
     This repo's Docs Lane merges with no human at the gate: after review and
     CI pass, the agent squash-merges on its own. The decision is recorded as
-    [ADR-0002](https://github.com/Gharib89/agentic-engineering-with-claude/blob/main/docs/adr/0002-auto-merge-docs-lane.md),
+    [ADR-0002](../adr/0002-auto-merge-docs-lane.md),
     and it leans on all three conditions: a docs-only repo has no runtime
     and no user data, the strict build plus two-axis review cover what a
     human gate would catch, and the human steers at the spec and ticket
-    level. The same ADR names the revisit trigger — the day this repo ships
-    executable surface, Auto-merge is back on the table.
+    level. The same ADR names the revisit trigger — the day this repo grows
+    executable surface, the decision must be revisited before that surface
+    ships through the lane.
 
 ## Quiz before merge
 
@@ -61,11 +62,12 @@ The principle: **before a change merges, prove a human still understands it — 
 
 !!! example "this repo — a lane with no one to quiz"
     The Docs Lane's Auto-merge means no human stands at the PR, so there is
-    no one to take a quiz — the lane accepts per-page knowledge decay as
-    part of the ADR-0002 trade. The counterweight sits a level up: the human
-    writes the spec and every ticket, and reads the shipped Chapter on the
-    live site. Understanding is checked against the published page, not the
-    diff — which works precisely because the pages *are* the product.
+    no one to take a quiz — per-page knowledge decay is a cost the lane
+    accepts. What ADR-0002 does record is the counterweight: the human
+    stays in the loop at the spec and ticket level, shaping every page
+    before an agent writes it. Understanding is checked against the
+    published Chapter, not the diff — which works precisely because the
+    pages *are* the product.
 
 ## From merged to running
 
