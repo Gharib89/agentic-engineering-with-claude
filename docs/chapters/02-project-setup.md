@@ -4,7 +4,7 @@ An agent begins every session knowing nothing but what the project can tell it. 
 
 ## Give the agent a front door: CLAUDE.md
 
-Every project needs one file the agent reads at the start of every session: what the project is, what the goal is, which rules always apply, and where to look for everything else. In Claude Code that file is `CLAUDE.md` at the repo root, loaded automatically into every conversation.
+Every project needs one file the agent reads at the start of every session: what the project is, what the goal is, which rules always apply, and where to look for everything else. In Claude Code that file is `CLAUDE.md` at the repo root, loaded automatically into every conversation — the mechanics live in the [memory docs](https://code.claude.com/docs/en/memory).
 
 Because it rides along on every single prompt, its size is a tax on every piece of work the agent does. The discipline that follows: keep it to standing rules and pointers, not prose. State the goal, name the doctrine, then link to the deeper docs — the agent reads those on demand, when the task actually touches them. A front door is not a library; it is a sign telling you which room to enter.
 
@@ -46,7 +46,7 @@ The remedy is the architecture decision record: a short file per decision statin
 
 ## Let the tracker remember: issues as agent memory
 
-The issue tracker is the project's long-term memory, and agents make that literal. A session is ephemeral; the tracker persists. Work should arrive as issues shaped so that a fresh session — no chat history, no human nearby — can pick one up and build it: the goal, the checks that prove it done, and explicit blocking edges to the work it depends on. The Guide calls a ticket that meets this bar *self-contained*; everything else is archaeology the agent must perform before it can start.
+The issue tracker is the project's long-term memory, and agents make that literal. A session is ephemeral; the tracker persists. Work should arrive as issues shaped so that a fresh session — no chat history, no human nearby — can pick one up and build it: the goal, the checks that prove it done, and explicit blocking edges to the work it depends on. A ticket that meets this bar is self-contained; everything short of it is archaeology the agent must perform before it can start.
 
 The same record works in both directions. Closed issues, their comments, and the PRs that closed them are durable answers to "why is the code like this?" — searchable by the next session the way tribal knowledge never is. The tool is whichever tracker your team already runs, with one requirement: the agent must be able to operate it end to end — read, comment, label, close — from the command line or an API.
 
@@ -74,7 +74,7 @@ This changes what a review disagreement means. When two reviewers disagree, the 
 
 The last artifact is a boundary line: any rule a machine can check should be enforced by a machine, not written into the agent's instructions. A prompt-text rule is probabilistic — usually followed, sometimes not, and silently so. A hook is deterministic: it fires on every matching action, costs nothing from the context window, and cannot forget. Formatting, lint, spelling, commit hygiene — none of these deserve a sentence in `CLAUDE.md` when a hook can own them outright.
 
-The division of labor that results is the one to aim for: instructions carry judgment (what to build, what wins when principles conflict), hooks and gates carry mechanics (what a formatter or linter can decide). In Claude Code, hooks attach to events such as "after the agent edits a file"; the same checks then run again as CI gates, so nothing depends on the agent remembering anything. Every rule moved from prose to a hook makes the front door shorter and the enforcement stronger at the same time.
+The division of labor that results is the one to aim for: instructions carry judgment (what to build, what wins when principles conflict), hooks and gates carry mechanics (what a formatter or linter can decide). In Claude Code, [hooks](https://code.claude.com/docs/en/hooks) attach to events such as "after the agent edits a file"; the same checks then run again as CI gates, so nothing depends on the agent remembering anything. Every rule moved from prose to a hook makes the front door shorter and the enforcement stronger at the same time.
 
 !!! example "this repo — formatting the agent never thinks about"
     In this repo, a hook runs the markdown autoformatter on every file the
