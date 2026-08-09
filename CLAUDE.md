@@ -32,4 +32,4 @@ Markdown autoformats via hook; lint and spell gates run in CI. See `docs/agents/
 
 ### Docs Lane
 
-Tickets ship through the `docs-ship` skill (`.claude/skills/docs-ship/`): one ticket per run, strict build, two-axis review, auto-merge (ADR-0002). Vendored copies under `.claude/skills/` are derived from personal skills — refresh with `scripts/sync-skills.py`, never hand-edit them.
+Tickets ship through the `docs-ship` skill (`.claude/skills/docs-ship/`), one ticket per run, ending in auto-merge (ADR-0002); vendored copies under `.claude/skills/` are derived, never hand-edited. See `docs/agents/docs-lane.md`.
