@@ -1,0 +1,56 @@
+site_name: Agentic Engineering with Claude Code
+site_description: >-
+  The Guide — full-SDLC agentic engineering with Claude Code, from idea to
+  production to operations.
+site_url: https://gharib89.github.io/agentic-engineering-with-claude/
+repo_url: https://github.com/Gharib89/agentic-engineering-with-claude
+repo_name: Gharib89/agentic-engineering-with-claude
+
+theme:
+  name: material
+  logo: assets/branding/AIWorx_logo.png
+  favicon: assets/branding/AIWorx_logo.png
+  font: false
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.footer
+    - navigation.instant
+    - navigation.tracking
+    - toc.follow
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.details
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Chapters:
+      - "1. Why this works": chapters/01-why-this-works.md
+      - "2. Project setup": chapters/02-project-setup.md
+      - "3. Equipping the agent": chapters/03-equipping-the-agent.md
+      - "4. From idea to plan": chapters/04-from-idea-to-plan.md
+      - "5. Implementation": chapters/05-implementation.md
+      - "6. Validation": chapters/06-validation.md
+      - "7. Review and merge": chapters/07-review-and-merge.md
+      - "8. Delivery and operations": chapters/08-delivery-and-operations.md
