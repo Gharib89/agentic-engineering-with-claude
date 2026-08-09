@@ -29,3 +29,7 @@ Single-context: `CONTEXT.md` + `docs/adr/` at repo root. See `docs/agents/domain
 ### Docs tooling
 
 Markdown autoformats via hook; lint and spell gates run in CI. See `docs/agents/docs-tooling.md`.
+
+### Docs Lane
+
+Tickets ship through the `docs-ship` skill (`.claude/skills/docs-ship/`): one ticket per run, strict build, two-axis review, auto-merge (ADR-0002). Vendored copies under `.claude/skills/` are derived from personal skills — refresh with `scripts/sync-skills.py`, never hand-edit them.
