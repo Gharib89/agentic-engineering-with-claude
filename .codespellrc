@@ -1,0 +1,4 @@
+[codespell]
+skip = ./site,./.git
+# When codespell flags a name or domain term that is spelled as intended,
+# add: ignore-words-list = word1,word2 (lowercase).

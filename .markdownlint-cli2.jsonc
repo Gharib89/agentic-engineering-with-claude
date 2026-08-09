@@ -1,0 +1,15 @@
+{
+  // Lint config for the docs lane. The autoformat hook (.claude/settings.json)
+  // and the CI gate both read this file, so formatter and linter never drift.
+  "config": {
+    // Prose lines stay unwrapped: hard wraps churn diffs and agent edits.
+    "MD013": false,
+    // python-markdown (MkDocs) only renders nested lists indented 4 spaces.
+    "MD007": { "indent": 4 },
+    // Material admonition bodies are indented 4 spaces; the rule would
+    // misread them as inconsistent code-block style.
+    "MD046": false
+  },
+  "globs": ["**/*.md"],
+  "ignores": ["site/**", "node_modules/**"]
+}
