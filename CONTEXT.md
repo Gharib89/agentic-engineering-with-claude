@@ -1,0 +1,35 @@
+# Agentic Engineering Guide
+
+The context is a documentation project: an MkDocs site teaching the ITWorx team full-SDLC engineering with Claude Code, built inside the workflow it teaches.
+
+## Language
+
+**The Guide**:
+The deliverable — the MkDocs Material site built from `docs/`.
+_Avoid_: handbook, manual, playbook
+
+**Chapter**:
+One top-level page of the Guide covering one SDLC theme. Eight exist.
+_Avoid_: section, article
+
+**Example Box**:
+A labeled block inside a chapter showing a generic principle applied in one reference repo.
+_Avoid_: case study, sample
+
+**Reference Repo**:
+A real project the Guide draws examples from: `crm` (Dynamics 365 CLI), `cc-otel` (telemetry + Power BI), and this repo itself.
+_Avoid_: demo project
+
+**Living Lab**:
+The doctrine that this repo is built using the workflow the Guide teaches, so its own history supplies worked examples.
+
+**Verification Medium**:
+The project-specific evidence an agent uses to know a change is done — tests for a CLI, screenshots for a report, a strict build for docs. Central concept of the validation chapter and of the docs lane.
+_Avoid_: acceptance criteria, definition of done
+
+**Docs Lane**:
+This repo's shipping workflow (the `docs-ship` skill): strict build + diagram checks + two-axis review, ending in auto-merge.
+_Avoid_: pipeline
+
+**Auto-merge**:
+Merging a PR after review passes with no human merge gate. Policy of the docs lane only.
