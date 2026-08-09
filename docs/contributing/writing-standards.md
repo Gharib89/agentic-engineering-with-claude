@@ -20,11 +20,13 @@ An Example Box is a Material `example` admonition whose title starts with the Re
 
 ```markdown
 !!! example "crm — the Verification Medium is the CLI's test suite"
-    The `crm` CLI ships behind `pytest`; the agent knows a change
-    is done when the suite passes.
+    `crm`, a command-line client for Microsoft Dynamics 365, ships behind
+    `pytest`; the agent knows a change is done when the suite passes.
 ```
 
-**Check:** every Example Box carries exactly one Reference Repo label, and the box shows a principle already stated generically in the body above it.
+A box must stand alone for a reader who has never seen the Reference Repo — the Guide's audience knows none of them in advance. On the repo's first appearance on a page, the box body introduces it in one clause (what kind of project it is) before showing the principle.
+
+**Check:** every Example Box carries exactly one Reference Repo label, the box shows a principle already stated generically in the body above it, and a reader who has never opened the Reference Repo can still say what the box proves.
 
 ## 4. Glossary compliance
 

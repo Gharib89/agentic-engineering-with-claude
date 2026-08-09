@@ -11,11 +11,13 @@ The reason is mechanical, not mystical. An agent works inside a finite context w
 The consequence is the Guide's first practical rule: **clean architecture is a prerequisite for agentic work, not a nice-to-have**. The design canon your team already knows — separation of concerns, small units, dependencies pointing inward, tests that pin behavior — was written for human teams, but it pays out double with agents. Nothing new to learn; the existing discipline simply stops being optional. The tools to reach for are the project's context files — CLAUDE.md, CONTEXT.md, and the ADR log — which make that structure legible to an agent from the first prompt; [Chapter 2](02-project-setup.md) sets them up.
 
 !!! example "crm — one command, one module, one place to work"
-    The `crm` CLI keeps every Dynamics 365 operation in its own module under
-    `crm/commands/`, all riding on a shared engine in `crm/core/`. An agent
-    fixing the `audit` command reads one command module and the core interface
-    it calls — not the other seventy modules — so its context stays small and
-    its edit lands in exactly one place.
+    `crm` is one of the Guide's Reference Repos: a command-line client for
+    Microsoft Dynamics 365, built with agents from day one. It keeps every
+    operation in its own module under `crm/commands/`, all riding on a shared
+    engine in `crm/core/`. An agent fixing the `audit` command reads one
+    command module and the core interface it calls — not the other seventy
+    modules — so its context stays small and its edit lands in exactly one
+    place.
 
 ## Feedback loops, not supervision
 
@@ -24,10 +26,12 @@ The instinct with a new tool is to watch it: read every diff as it streams by, i
 Building that loop means answering one question per project: what evidence proves a change is done? The Guide calls the answer the **Verification Medium** — a test suite for a CLI, a rendered page for a report, a strict build for a docs site. Once the medium exists, the human's job moves up a level: define the goal and the check, then judge the verified result. The agent loops against the medium on its own; you review outcomes, not keystrokes. [Chapter 6](06-validation.md) is entirely about choosing and sharpening this medium.
 
 !!! example "cc-otel — when the check is a picture, not a test"
-    `cc-otel` lands telemetry in Power BI, and no assertion can say whether a
-    report page *looks* right. Its Verification Medium is visual: the agent
-    renders the page and inspects the screenshot. The loop is the same —
-    change, check, iterate — only the medium differs from a test suite.
+    `cc-otel`, another Reference Repo, is a telemetry project that collects
+    Claude Code usage data and lands it in Power BI reports. No
+    assertion can say whether a report page *looks* right, so its Verification
+    Medium is visual: the agent renders the page and inspects the screenshot.
+    The loop is the same — change, check, iterate — only the medium differs
+    from a test suite.
 
 !!! example "this repo — the strict build is the loop"
     The Guide's own Verification Medium is `mkdocs build --strict` plus the
