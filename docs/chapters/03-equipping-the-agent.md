@@ -19,7 +19,8 @@ A skill differs from the front door by load time, not by content type. `CLAUDE.m
 You also rarely start from zero. Published skill collections — Matt Pocock's, the origin of this Guide's toolkit — are inspiration and raw material: adopt what is good, build what is missing, and where a published skill and your proven practice differ, your practice wins.
 
 !!! example "this repo — the Docs Lane is one skill"
-    This repo ships every Guide ticket through `docs-ship`, a project skill
+    This repo — the Guide's own source, and one of its Reference Repos —
+    ships every Guide ticket through `docs-ship`, a project skill
     that packages the whole lane: claim the ticket, isolate on a branch,
     write, gate on the strict build, run the two-axis review, merge. The
     process is a file, so changing the process is a PR — when the lane
