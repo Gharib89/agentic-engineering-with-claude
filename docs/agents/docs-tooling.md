@@ -7,7 +7,7 @@ Formatting and spelling belong to machines so agents never spend turns on them. 
 - **Autoformat hook** — a `PostToolUse` hook (`.claude/settings.json` → `.claude/hooks/format-markdown.sh`) runs `markdownlint-cli2 --fix` on every markdown file the agent edits or writes. It never blocks: formatting failures exit 0 and the gate catches what the fixer cannot.
 - **Lint gate** — the `lint` job in CI runs `markdownlint-cli2` on every pull request and push to main.
 - **Spell gate** — `codespell` runs in the same CI job. False positives (names, domain terms) go in `.codespellrc`, not inline.
-- **Strict build** — `mkdocs build --strict` stays the Verification Medium for the site itself: nav, internal links, anchors.
+- **Strict build** — `mkdocs build --strict` stays the Verification Medium for the site itself: nav, internal links, anchors. It verifies structure, not rendering — an admonition body indented three spaces instead of four builds clean yet renders as a plain paragraph — so when a change touches admonitions or embedded diagrams, pair the build with a render check (the diagram skill's per-frame verification, or the live page after deploy).
 
 Hook and gate read the same config, `.markdownlint-cli2.jsonc`, so formatter and linter cannot drift. Rules tuned there:
 
