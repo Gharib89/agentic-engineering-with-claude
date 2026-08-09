@@ -1,0 +1,25 @@
+/* AIWorx design tokens — source: docs/assets/branding/design-tokens.json
+   (copied from cc-otel/powerbi/branding). Questrial is the web fallback for
+   Century Gothic, which is not available as a web font. */
+@import url("https://fonts.googleapis.com/css2?family=Questrial&display=swap");
+
+:root {
+  --md-text-font: "Century Gothic", CenturyGothic, "Questrial", "URW Gothic",
+    "Apple Gothic", sans-serif;
+}
+
+/* Light scheme: theme accent1 (primary), wordmark (dark), accent3 (accent). */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #171b8e;
+  --md-primary-fg-color--light: #3a44d4;
+  --md-primary-fg-color--dark: #00197f;
+  --md-accent-fg-color: #0198cb;
+}
+
+/* Dark scheme: chart-safe dark-mode blue/cyan slots keep links readable. */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #5d67e6;
+  --md-primary-fg-color--light: #5d67e6;
+  --md-primary-fg-color--dark: #171b8e;
+  --md-accent-fg-color: #0aa2d3;
+}
