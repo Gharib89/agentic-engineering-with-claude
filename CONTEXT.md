@@ -33,3 +33,10 @@ _Avoid_: pipeline
 
 **Auto-merge**:
 Merging a PR after review passes with no human merge gate. Policy of the docs lane only.
+
+**Tracer Bullet**:
+A ticket cut as a thin end-to-end slice — it travels every layer and ends in something a user or a check can see, proving the path rather than building a layer.
+
+**Wayfinder Map**:
+A living issue for an effort too foggy to spec in one session: notes, decisions-so-far, and the fog (the open questions), with typed child tickets (research, prototype, grilling, task) linked by blocking edges; the unblocked children are the frontier.
+_Avoid_: epic
