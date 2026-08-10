@@ -2,7 +2,7 @@
 
 The Guide teaches the full software development lifecycle with Claude Code — idea to production to operations. This page is the Quick Start: the whole method at a glance, communicated through its diagrams, with every Chapter one click away for the details.
 
-## The premise
+## The premise: clean code is agent leverage
 
 AI agents amplify the codebase they work in: code that is easy to change lets an agent find the right place to work, and code that is easy to test gives it a feedback loop to verify its own changes. The principles of good software design were written for human teams, but they pay out double with agents — clean in, clean out. [Chapter 1](chapters/01-why-this-works.md) develops this thesis in full.
 
@@ -19,7 +19,7 @@ Basic working knowledge is enough — the Guide does not assume expertise in any
 
 ## The method at a glance
 
-The whole method is one loop — idea, plan, implement, validate, review, deliver, operate, and operate feeds the next idea — standing on foundations you lay once per project. Every stage is a place where an agent either does the work or checks it.
+The whole method is one loop — idea, plan, implement, validate, review, deliver, operate, and operate feeds the next idea — standing on foundations you lay once per project. At every stage an agent has a role: doing the work, or checking it.
 
 ![The SDLC loop: idea, plan, implement, validate, review, deliver, operate — and operate feeds back into idea](assets/diagrams/sdlc-loop.svg#only-light)
 ![The SDLC loop: idea, plan, implement, validate, review, deliver, operate — and operate feeds back into idea](assets/diagrams/sdlc-loop.dark.svg#only-dark)
@@ -62,7 +62,7 @@ The source material behind the Guide, in three buckets.
 - [The New SDLC With Vibe Coding](https://www.kaggle.com/whitepaper-the-new-SDLC-with-vibe-coding) — Google/Kaggle whitepaper. The spectrum from vibe coding to agentic engineering, and the thesis that generation is solved — the remaining work is specification and verification.
 - [Best practices for Claude Code](https://code.claude.com/docs/en/best-practices) — Anthropic. The distilled day-to-day practice: verification loops, plan mode, CLAUDE.md hygiene, context management.
 - [How Anthropic teams use Claude Code](https://claude.com/blog/how-anthropic-teams-use-claude-code) — Anthropic. Concrete internal-team workflows across product, security, legal, and data science.
-- [mattpocock/skills](https://github.com/mattpocock/skills) and [AI Hero](https://www.aihero.dev) — Matt Pocock. The skills collection this repo's own practice adapts, and the pedagogy behind it.
+- [mattpocock/skills](https://github.com/mattpocock/skills) and [AI Hero](https://www.aihero.dev) — Matt Pocock. The skills collection the Guide's practice adapts, and the pedagogy behind it.
 
 ### Evidence
 
