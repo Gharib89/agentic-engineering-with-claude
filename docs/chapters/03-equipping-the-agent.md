@@ -15,7 +15,7 @@ The picture is worth holding because every equipment decision in this Chapter is
 
 The first time you walk an agent through a multi-step procedure, the explanation lives in the chat and dies with it; the second time, you are already retyping it worse. A procedure worth running twice belongs in a **skill**: a versioned instruction file the agent loads when a matching task arrives. That single move changes the procedure's nature — process stops being something you prompt well and becomes an artifact: written once, reviewed like code, improved by diff, shared across the team. In Claude Code the mechanics are [agent skills](https://code.claude.com/docs/en/skills); the principle is older than the feature — checklists beat memory.
 
-A skill differs from the front door by load time, not by content type. `CLAUDE.md` carries the standing rules every session needs; a skill carries one procedure, and costs nothing until a task matches it. When a rule keeps applying everywhere, it belongs in the front door; when it only applies while shipping a release or triaging a bug, it belongs in a skill.
+A skill differs from the front door by load time, not by content type. `CLAUDE.md` carries the standing rules every session needs; a skill carries one procedure, and costs almost nothing — only its short description rides along so matching can happen. When a rule keeps applying everywhere, it belongs in the front door; when it only applies while shipping a release or triaging a bug, it belongs in a skill.
 
 You also rarely start from zero. Published skill collections — Matt Pocock's, the origin of this Guide's toolkit — are inspiration and raw material: adopt what is good, build what is missing, and where a published skill and your proven practice differ, your practice wins.
 
@@ -30,7 +30,7 @@ You also rarely start from zero. Published skill collections — Matt Pocock's, 
 
 ## Look it up, never recall: documentation MCP servers
 
-An agent's built-in knowledge of every library, SDK, and API froze at its training cutoff; the libraries kept moving. Asked from memory, the agent answers with the most dangerous kind of wrong: plausible, confident, and shaped like last year's API. The fix is structural, not exhortative — wire current documentation in as a tool the agent can call, then make lookup the standing rule. [MCP servers](https://code.claude.com/docs/en/mcp) are the wiring: context7 serves versioned open-source library docs, Microsoft Learn serves the Microsoft and Azure estate, and one line in the front door — a library question means a lookup, never recall — turns the tool into a habit.
+An agent's built-in knowledge of every library, SDK, and API froze at its training cutoff; the libraries kept moving. Asked from memory, the agent answers with the most dangerous kind of wrong: plausible, confident, and shaped like last year's API. The fix is structural, not exhortative — wire current documentation in as a tool the agent can call, then make lookup the standing rule. [MCP servers](https://code.claude.com/docs/en/mcp) are the wiring: context7 serves versioned library docs, Microsoft Learn serves the Microsoft and Azure estate, and one line in the front door — a library question means a lookup, never recall — turns the tool into a habit.
 
 The why is the same asymmetry as every guardrail in Chapter 2: a hallucinated API call costs a debugging session downstream; a lookup costs seconds. Give the agent eyes on the current docs and the whole class of "it compiled, but that parameter was renamed two versions ago" disappears.
 
