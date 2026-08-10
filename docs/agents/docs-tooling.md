@@ -15,6 +15,17 @@ Hook and gate read the same config, `.markdownlint-cli2.jsonc`, so formatter and
 - `MD007` indent 4 — python-markdown (MkDocs) only renders nested lists indented 4 spaces.
 - `MD046` off — Material admonition bodies are indented and would misread as inconsistent code-block style.
 
+## Diagram variants
+
+Every diagram ships two SVGs from one `.excalidraw` source: `<stem>.svg` (light) and `<stem>.dark.svg` (the diagram skill's dark export). Pages embed the pair with Material's hash suffixes, and the theme toggle picks one:
+
+```markdown
+![alt text](../assets/diagrams/<stem>.svg#only-light)
+![alt text](../assets/diagrams/<stem>.dark.svg#only-dark)
+```
+
+Both refs carry the same alt text. A new or changed diagram is not done until both variants are re-exported and both refs are in place.
+
 ## Reviewed and rejected
 
 - **Markdown LSP** (marksman) — agents here edit prose, not code; the lint gate plus strict build already surface everything its diagnostics would, so harness wiring earns nothing back.

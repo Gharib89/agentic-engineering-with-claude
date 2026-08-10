@@ -6,7 +6,8 @@
 
 Everything an agent knows in a session arrives through one finite context window, so equipping an agent is really curating what flows into that window, and when. The sources are few and nameable: the always-loaded front door (`CLAUDE.md`), the project memory behind it read on demand (the glossary, the ADR log, the standards doc), skills that load when a task matches them, MCP servers that fetch live knowledge from outside the repo, and tools whose results return as observations.
 
-![Agent context sources: CLAUDE.md always loaded; the glossary, ADR log, and standards doc read on demand; skills loaded on match; MCP servers fetched live; custom tools returning observations — all feeding one context window](../assets/diagrams/agent-context-sources.svg)
+![Agent context sources: CLAUDE.md always loaded; the glossary, ADR log, and standards doc read on demand; skills loaded on match; MCP servers fetched live; custom tools returning observations — all feeding one context window](../assets/diagrams/agent-context-sources.svg#only-light)
+![Agent context sources: CLAUDE.md always loaded; the glossary, ADR log, and standards doc read on demand; skills loaded on match; MCP servers fetched live; custom tools returning observations — all feeding one context window](../assets/diagrams/agent-context-sources.dark.svg#only-dark)
 
 The picture is worth holding because every equipment decision in this Chapter is the same decision asked again: does this knowledge ride along always, load on demand, or get fetched at the moment of need? The later it loads, the less it costs the window — Chapter 2's "size is a tax" rule, extended from one file to everything the agent touches.
 
