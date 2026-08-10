@@ -43,7 +43,8 @@ Building that loop means answering one question per project: what evidence prove
 
 A tempting story says agents make process obsolete: prompt in, software out. The opposite is true. Ideas still need shaping into plans, plans into changes, changes into validated, reviewed, delivered software that someone operates — and what operations teaches still feeds the next idea. Agents change the cost and speed of each arc, not the shape of the loop.
 
-![The SDLC loop: idea, plan, implement, validate, review, deliver, operate — and operate feeds back into idea](../assets/diagrams/sdlc-loop.svg)
+![The SDLC loop: idea, plan, implement, validate, review, deliver, operate — and operate feeds back into idea](../assets/diagrams/sdlc-loop.svg#only-light)
+![The SDLC loop: idea, plan, implement, validate, review, deliver, operate — and operate feeds back into idea](../assets/diagrams/sdlc-loop.dark.svg#only-dark)
 
 Speed is precisely why the loop tightens instead of dissolving. When implementation is cheap and fast, the expensive failures move to the edges: a vague plan now produces working code that solves the wrong problem by lunchtime, and a weak review gate merges it. So the stages the hype says you can skip are the ones that must firm up — sharper plans in, stronger verification and review gates out. Each stage also becomes a place where an agent either does the work or checks it, which is why the Guide walks the loop stage by stage: [plan](04-from-idea-to-plan.md), [implement](05-implementation.md), [validate](06-validation.md), [review](07-review-and-merge.md), [deliver and operate](08-delivery-and-operations.md).
 

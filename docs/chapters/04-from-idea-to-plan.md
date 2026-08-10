@@ -2,7 +2,8 @@
 
 [Chapter 1](01-why-this-works.md) ended on a warning: when implementation is cheap, a vague plan produces working code that solves the wrong problem by lunchtime. This Chapter is the counter. Before any code, the idea is turned into shared understanding — an interview that separates facts from decisions, research against primary sources, a domain model that grows as you go, and finally a spec cut into tickets an agent can build from a fresh session. When the effort is too foggy even for that, you map the decisions first. Planning stops being a document you write alone and becomes a dialogue the agent drives.
 
-![The idea-to-ship chain: an idea passes through the interview, research, and domain modeling into a spec, which is cut into tickets that feed the build loop](../assets/diagrams/idea-to-ship-chain.svg)
+![The idea-to-ship chain: an idea passes through the interview, research, and domain modeling into a spec, which is cut into tickets that feed the build loop](../assets/diagrams/idea-to-ship-chain.svg#only-light)
+![The idea-to-ship chain: an idea passes through the interview, research, and domain modeling into a spec, which is cut into tickets that feed the build loop](../assets/diagrams/idea-to-ship-chain.dark.svg#only-dark)
 
 ## The interview: facts are the agent's job, decisions are yours
 
@@ -69,7 +70,8 @@ What enters the queue are tickets cut from the spec, and each one is a tracer bu
 
 Some efforts resist a single interview: the unknowns interlock, and each answer moves the others. Forcing a spec there just launders guesses into decisions. Map the effort instead, with a [wayfinder skill](https://www.aihero.dev/skills). A wayfinder map is a living record with three parts — notes, the decisions made so far, and the fog: the open questions still ahead. Each question in the fog becomes a child ticket typed by what resolves it: **research** when an answer exists in primary sources, **prototype** when the answer only comes from building something throwaway, **grilling** when it is a genuine human decision needing an interview, and **task** when the work is already clear. Blocking edges connect the children, and the frontier — unblocked children — is where work happens.
 
-![A wayfinder map: one map record holds notes, decisions-so-far, and the fog; each open question becomes a typed child — research, prototype, grilling — on the unblocked frontier, the frontier blocks the task whose work is already clear, and resolved children write their answers back to the map; when the fog is empty the map converges on a spec, or ships piecewise straight off the map](../assets/diagrams/wayfinder-map.svg)
+![A wayfinder map: one map record holds notes, decisions-so-far, and the fog; each open question becomes a typed child — research, prototype, grilling — on the unblocked frontier, the frontier blocks the task whose work is already clear, and resolved children write their answers back to the map; when the fog is empty the map converges on a spec, or ships piecewise straight off the map](../assets/diagrams/wayfinder-map.svg#only-light)
+![A wayfinder map: one map record holds notes, decisions-so-far, and the fog; each open question becomes a typed child — research, prototype, grilling — on the unblocked frontier, the frontier blocks the task whose work is already clear, and resolved children write their answers back to the map; when the fog is empty the map converges on a spec, or ships piecewise straight off the map](../assets/diagrams/wayfinder-map.dark.svg#only-dark)
 
 Every resolved child writes its answer back to the map, and the fog recedes. Some efforts converge on a spec once enough is known; others ship piecewise straight off the map. Either way the point is the same: under fog of war, you buy information before you commit — and the map keeps a multi-session effort coherent, because any fresh session can read where the effort stands and pick up the frontier.
 
