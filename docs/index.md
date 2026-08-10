@@ -21,8 +21,8 @@ Basic working knowledge is enough — the Guide does not assume expertise in any
 
 The whole method is one loop — idea, plan, implement, validate, review, deliver, operate, and operate feeds the next idea — standing on foundations you lay once per project. At every stage an agent has a role: doing the work, or checking it.
 
-![The Guide's master map: the SDLC loop grouped into three phase regions — Idea to plan (Ch 4), Build and validate (Ch 5–6), Ship and operate (Ch 7–8) — standing on a Foundations band holding Chapters 1–3](assets/diagrams/guide-master-map.svg#only-light)
-![The Guide's master map: the SDLC loop grouped into three phase regions — Idea to plan (Ch 4), Build and validate (Ch 5–6), Ship and operate (Ch 7–8) — standing on a Foundations band holding Chapters 1–3](assets/diagrams/guide-master-map.dark.svg#only-dark)
+![The Guide's master diagram: the SDLC loop grouped into three phase regions — Idea to plan (Ch 4), Build and validate (Ch 5–6), Ship and operate (Ch 7–8) — with operate feeding back into idea, standing on a Foundations band holding Chapters 1–3](assets/diagrams/guide-master-map.svg#only-light)
+![The Guide's master diagram: the SDLC loop grouped into three phase regions — Idea to plan (Ch 4), Build and validate (Ch 5–6), Ship and operate (Ch 7–8) — with operate feeding back into idea, standing on a Foundations band holding Chapters 1–3](assets/diagrams/guide-master-map.dark.svg#only-dark)
 
 ### Foundations
 
