@@ -1,4 +1,6 @@
 [codespell]
-skip = ./site,./.git
+# *.svg: rendered diagram exports embed base64-subset fonts that decode to
+# random letter runs codespell misreads as words.
+skip = ./site,./.git,*.svg
 # When codespell flags a name or domain term that is spelled as intended,
 # add: ignore-words-list = word1,word2 (lowercase).
