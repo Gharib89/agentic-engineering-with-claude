@@ -52,3 +52,7 @@ _Avoid_: context limit
 **Handoff Artifact**:
 A document one session writes for the next session to read — a spec, a ticket, a plan. Written for a reader with zero context, it records what was decided and why; a good one is judged by whether the next session relitigates.
 _Avoid_: notes, summary
+
+**Docs Review**:
+The on-demand claim-vs-source re-review of a shipped page (the `docs-review` skill); confirmed findings land as docs-lane tickets, never direct edits.
+_Avoid_: audit, link check

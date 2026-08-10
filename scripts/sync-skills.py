@@ -68,7 +68,7 @@ EXCLUDE = {"setup-matt-pocock-skills"}
 
 # Hand-authored in this repo — `.claude/skills/` IS their source of truth.
 # Never vendor over these.
-PROJECT_NATIVE = {"docs-ship"}
+PROJECT_NATIVE = {"docs-ship", "docs-review"}
 
 # A backticked `/name` or `name` token that matches a known skill directory.
 _REF = re.compile(r"`/?([a-z][a-z0-9-]+)`")
