@@ -44,3 +44,11 @@ A ticket cut as a thin end-to-end slice — it travels every layer and ends in s
 **Wayfinder Map**:
 A living issue for an effort too foggy to spec in one session: notes, decisions-so-far, and the fog (the open questions), with typed child tickets (research, prototype, grilling, task) linked by blocking edges; the unblocked children are the frontier.
 _Avoid_: epic
+
+**Smart Zone**:
+The early part of an agent session where quality is sharp. Quality falls gradually as context grows (the dumb zone), long before the window limit — so sessions and tickets are sized to the zone, not the window.
+_Avoid_: context limit
+
+**Handoff Artifact**:
+A document one session writes for the next session to read — a spec, a ticket, a plan. Written for a reader with zero context, it records what was decided and why; a good one is judged by whether the next session relitigates.
+_Avoid_: notes, summary
