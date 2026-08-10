@@ -27,6 +27,10 @@ The doctrine that this repo is built using the workflow the Guide teaches, so it
 The project-specific evidence an agent uses to know a change is done — tests for a CLI, screenshots for a report, a strict build for docs. Central concept of the validation chapter and of the docs lane.
 _Avoid_: acceptance criteria, definition of done
 
+**Quick Start**:
+The Home page's role — a phase-grouped TL;DR of the whole Guide, communicated diagram-first, with chapter links as the detail layer and an external-resources section. A summary, not a tutorial.
+_Avoid_: getting-started guide, tutorial, onboarding
+
 **Docs Lane**:
 This repo's shipping workflow (the `docs-ship` skill): strict build + diagram checks + two-axis review, ending in auto-merge.
 _Avoid_: pipeline
