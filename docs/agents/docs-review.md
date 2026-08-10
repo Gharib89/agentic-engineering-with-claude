@@ -1,0 +1,3 @@
+# Docs Review
+
+The on-demand claim-vs-source re-review of shipped Chapters: `/docs-review [chapter]` sends one reviewer subagent per page to check every externally-sourced claim against its live source, then one refute-framed verifier per candidate finding, and batches what survives into a `ready-for-agent` refinement ticket for the [Docs Lane](docs-lane.md) — never direct edits. It exists because external sources move under the Guide's links and CI never checks them. This page is the map; the skill itself (`.claude/skills/docs-review/SKILL.md`) is the source of truth for every step.

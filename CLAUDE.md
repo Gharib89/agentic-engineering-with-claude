@@ -33,3 +33,7 @@ Markdown autoformats via hook; lint and spell gates run in CI. See `docs/agents/
 ### Docs Lane
 
 Tickets ship through the `docs-ship` skill (`.claude/skills/docs-ship/`), one ticket per run, ending in auto-merge (ADR-0002); vendored copies under `.claude/skills/` are derived, never hand-edited. See `docs/agents/docs-lane.md`.
+
+### Docs Review
+
+Shipped chapters get re-reviewed claim-vs-source on demand via the `docs-review` skill (`.claude/skills/docs-review/`); confirmed findings land as docs-lane tickets, never direct edits. See `docs/agents/docs-review.md`.
