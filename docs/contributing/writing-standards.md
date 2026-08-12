@@ -32,7 +32,7 @@ A box must stand alone for a reader who has never seen the Reference Repo — th
 
 Use each domain term as `CONTEXT.md` defines it, and keep its avoided synonyms out: write *the Guide*, never handbook or playbook; *Chapter*, never section; *Example Box*, never case study; *Verification Medium*, never definition of done; *Docs Lane*, never pipeline.
 
-When a concept the page needs is missing from the glossary, that is a gap: resolve it through `/domain-modeling` so the term lands in `CONTEXT.md`, rather than coining wording in place.
+When a concept the page needs is missing from the glossary, that is a gap: resolve it through [`/domain-modeling`](https://www.aihero.dev/skills-domain-modeling) so the term lands in `CONTEXT.md`, rather than coining wording in place.
 
 **Check:** grep the diff for the avoided synonyms listed in `CONTEXT.md`; zero hits.
 
