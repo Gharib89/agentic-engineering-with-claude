@@ -17,11 +17,11 @@ The first time you walk an agent through a multi-step procedure, the explanation
 
 A skill differs from the front door by load time, not by content type. `CLAUDE.md` carries the standing rules every session needs; a skill carries one procedure, and costs almost nothing — only its short description rides along so matching can happen. When a rule keeps applying everywhere, it belongs in the front door; when it only applies while shipping a release or triaging a bug, it belongs in a skill.
 
-You also rarely start from zero. Published skill collections — Matt Pocock's, the origin of this Guide's toolkit — are inspiration and raw material: adopt what is good, build what is missing, and where a published skill and your proven practice differ, your practice wins.
+You also rarely start from zero. Published skill collections — Matt Pocock's, the origin of this Guide's toolkit, installable in one move with his [setup skill](https://www.aihero.dev/skills-setup-matt-pocock-skills) — are inspiration and raw material: adopt what is good, build what is missing, and where a published skill and your proven practice differ, your practice wins.
 
 !!! example "this repo — the Docs Lane is one skill"
     This repo — the Guide's own source, and one of its Reference Repos —
-    ships every Guide ticket through `docs-ship`, a project skill
+    ships every Guide ticket through [`docs-ship`](../agents/docs-lane.md), a custom-made project skill
     that packages the whole lane: claim the ticket, isolate on a branch,
     write, gate on the strict build, run the two-axis review, merge. The
     process is a file, so changing the process is a PR — when the lane
@@ -87,7 +87,7 @@ A task bigger than one Smart Zone does not get a longer session — it splits at
 !!! example "this repo — tickets sized to the smart zone"
     This repo ships every Guide ticket through a docs-ship run that handles
     exactly one ticket, so each ticket gets a fresh session and the sharpest part of
-    that session's window. Wayfinder Map child tickets are cut to the same
+    that session's window. [Wayfinder](https://www.aihero.dev/skills-wayfinder) Map child tickets are cut to the same
     measure: one session each. The rule stays testable in both directions —
     a ticket a run cannot finish before quality slips gets split into
     smaller tickets, and tickets that are mostly setup get merged.
