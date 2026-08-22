@@ -32,7 +32,7 @@ The Home page's role — a phase-grouped TL;DR of the whole Guide, communicated 
 _Avoid_: getting-started guide, tutorial, onboarding
 
 **Docs Lane**:
-This repo's shipping workflow (the `docs-ship` skill): strict build + diagram checks + two-axis review, ending in auto-merge.
+This repo's shipping workflow (the `docs-ship` skill): strict build + diagram checks + review axes, ending in auto-merge.
 _Avoid_: pipeline
 
 **Auto-merge**:
@@ -56,3 +56,11 @@ _Avoid_: notes, summary
 **Docs Review**:
 The on-demand claim-vs-source re-review of a shipped page (the `docs-review` skill); confirmed findings land as docs-lane tickets, never direct edits.
 _Avoid_: audit, link check
+
+**Eli5 Register**:
+The Chapter voice: metaphor-led and picture-first, one claim per numbered part, few words, with every metaphor mapped back to its glossary term in a real-names block.
+_Avoid_: simplified version, dumbed-down, beginner mode
+
+**Metaphor Map**:
+The one canonical metaphor fixed per glossary term, shared by every Chapter so the same concept always wears the same picture.
+_Avoid_: analogy list

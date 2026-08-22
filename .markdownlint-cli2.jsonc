@@ -8,7 +8,15 @@
     "MD007": { "indent": 4 },
     // Material admonition bodies are indented 4 spaces; the rule would
     // misread them as inconsistent code-block style.
-    "MD046": false
+    "MD046": false,
+    // Eli5 Register figures (ADR-0003) are hand-authored inline SVG wrapped
+    // in figure/figcaption; kicker pills are spans. Only those elements.
+    "MD033": {
+      "allowed_elements": [
+        "span", "figure", "figcaption", "svg", "defs", "marker", "path",
+        "rect", "circle", "line", "polyline", "text", "g"
+      ]
+    }
   },
   "globs": ["**/*.md"],
   // .claude/skills/** carries vendored skill copies — derived files that

@@ -23,3 +23,51 @@
   --md-primary-fg-color--dark: #171b8e;
   --md-accent-fg-color: #0aa2d3;
 }
+
+/* Eli5 Register devices (ADR-0003): kicker pills, labeled cards, and inline
+   SVG figures. Material variables only — no new fonts, no palette changes. */
+
+.md-typeset .guide-kicker {
+  display: inline-block;
+  padding: 0.1rem 0.6rem;
+  border: 1px solid var(--md-accent-fg-color);
+  border-radius: 2rem;
+  color: var(--md-accent-fg-color);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Example Boxes render as labeled cards: the admonition title becomes the
+   card's label, the body a quiet card. The Markdown stays the standard
+   `example` admonition, so the Example Box format rule is unchanged. */
+.md-typeset .admonition.example {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-left: 0.2rem solid var(--md-accent-fg-color);
+  border-radius: 0.4rem;
+  box-shadow: none;
+}
+.md-typeset .example > .admonition-title {
+  background-color: transparent;
+  color: var(--md-accent-fg-color);
+  font-size: 0.66rem;
+  letter-spacing: 0.04em;
+}
+
+/* Inline SVG figures scale to the column; the caption carries the claim. */
+.md-typeset figure.guide-figure {
+  display: block;
+  margin: 1.2rem auto;
+  max-width: 36rem;
+}
+.md-typeset .guide-figure svg {
+  max-width: 100%;
+  height: auto;
+}
+.md-typeset .guide-figure figcaption {
+  max-width: none;
+  font-size: 0.7rem;
+  color: var(--md-default-fg-color--light);
+  text-align: center;
+}
