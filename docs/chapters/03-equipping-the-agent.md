@@ -86,22 +86,22 @@ Noise, not size, is the trigger — a long task whose steps inform each other st
 
 ## 6. Stop while the legs are fresh
 
-A runner protects the window from noise; nothing protects it from time. Early on the agent has fresh legs — the **Smart Zone**: sharp, careful, recall good. Later it drifts into a dumb zone: sloppier, more forgetful — same model, same harness, just more context. The mechanism is a per-token [attention budget](https://www.aihero.dev/ai-coding-dictionary/attention-budget) ([Anthropic's term](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)) that does not grow with the window, so every added token dilutes the rest. The [degradation](https://www.aihero.dev/ai-coding-dictionary/attention-degradation) is gradual — no error, no threshold — and the [zones do not track the window limit](https://www.aihero.dev/ai-coding-dictionary/smart-zone).
+A runner protects the window from noise; nothing protects it from time. Early the agent has fresh legs — the **Smart Zone**; later the same agent drifts into a dumb zone. The [attention budget](https://www.aihero.dev/ai-coding-dictionary/attention-budget) ([Anthropic's term](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)) is per-token and fixed while the window grows, so every added token dilutes the rest — a [degradation](https://www.aihero.dev/ai-coding-dictionary/attention-degradation) that is gradual and silent.
 
 ![An output-quality curve runs high through the smart zone, drops where the felt signals appear, and stays low through the dumb zone while the window is still free of its limit; below, the controls ranked 1 /clear, 2 /compact, 3 autocompact.](../assets/diagrams/smart-zone.svg#only-light)
 ![An output-quality curve runs high through the smart zone, drops where the felt signals appear, and stays low through the dumb zone while the window is still free of its limit; below, the controls ranked 1 /clear, 2 /compact, 3 autocompact.](../assets/diagrams/smart-zone.dark.svg#only-dark)
 
 *Quality falls long before the window fills: the dumb zone arrives with most of the window still free.*
 
-So you read the felt signals instead: relitigated decisions, forgotten instructions, sloppier edits. Published numbers disagree — the [NoLiMa benchmark](https://arxiv.org/abs/2502.05167) measures degradation from as little as 32K, the [AI Hero dictionary](https://www.aihero.dev/ai-coding-dictionary/smart-zone) puts the onset near 125–150K, [ace-fca](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md) holds utilization to 40–60% of the window, and Chroma's [Context Rot](https://www.trychroma.com/research/context-rot) finds the same across eighteen models — so the disagreement is the finding: the boundary is task-dependent.
-
-The controls rank by who picks the moment: [`/clear`](https://www.aihero.dev/ai-coding-dictionary/clearing) when nothing needs to carry, an intentional [`/compact`](https://www.aihero.dev/ai-coding-dictionary/compaction) when it does, and [autocompact](https://www.aihero.dev/ai-coding-dictionary/autocompact), which takes the same loss at a moment you did not pick. [Mechanics](https://code.claude.com/docs/en/context-window) live in the docs.
+So you read the felt signals: relitigated decisions, sloppier edits. Published numbers disagree ([NoLiMa](https://arxiv.org/abs/2502.05167), the [AI Hero dictionary](https://www.aihero.dev/ai-coding-dictionary/smart-zone), [ace-fca](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md), Chroma's [Context Rot](https://www.trychroma.com/research/context-rot)), so the boundary is task-dependent. Controls rank by who picks the moment: [`/clear`](https://www.aihero.dev/ai-coding-dictionary/clearing), then an intentional [`/compact`](https://www.aihero.dev/ai-coding-dictionary/compaction), then [autocompact](https://www.aihero.dev/ai-coding-dictionary/autocompact) — the same loss, unchosen. [Mechanics](https://code.claude.com/docs/en/context-window) live in the docs.
 
 ## 7. Size the work order to one set of fresh legs
 
 A task bigger than one set of fresh legs does not get a longer session. It splits at a natural boundary, and the work crosses the [handoff](https://www.aihero.dev/ai-coding-dictionary/handoff) as a relay baton: a **Handoff Artifact** written for a reader with zero context, recording what was decided *and why*. The rule is testable — orders too big degrade before the work is done, orders too small spend their window on setup. Every Guide ticket ships through a run that handles exactly one of them. That baton is where [Chapter 4](04-from-idea-to-plan.md) starts: [specs](https://www.aihero.dev/ai-coding-dictionary/spec) and [tickets](https://www.aihero.dev/ai-coding-dictionary/ticket) are [Handoff Artifacts](https://www.aihero.dev/ai-coding-dictionary/handoff-artifact) too, written by one session to direct the next.
 
 ## Real names
+
+Every picture, and its real name:
 
 | The picture | The real name |
 | --- | --- |
