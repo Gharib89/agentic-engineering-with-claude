@@ -8,7 +8,7 @@ The Chapters were correct but dense: 1,100–2,100 words each, prose-led, with f
 
 The trade-off is real: fewer words drop nuance, and a register this opinionated is hard to reverse across eight Chapters. Compression is bounded by one rule — a rewrite may drop claims, never invent them, and surviving claims keep their sources.
 
-Figures split by scale. Hero and map-scale diagrams stay on the existing Excalidraw toolchain. Concept-scale figures are hand-authored inline SVG in the Markdown, drawn in `currentColor` so one source serves both themes with no generator step, each wrapped in a `figure` element whose caption states the figure's one claim.
+Figures at every scale ride the one Excalidraw toolchain: one `.excalidraw` source per figure, exported light and dark (`<stem>.svg`, `<stem>.dark.svg`) and embedded as a theme-switched pair, each followed by a one-line caption stating the figure's one claim. (Amended at the Chapter 1 pilot gate: the first draft used hand-authored inline SVG for concept-scale figures, and it read as a second visual voice next to the Excalidraw diagrams — one look beats one fewer tool. The accepted cost: figures need the local excalidraw plugin, so diagram tickets stay out of unattended cloud fires.)
 
 Every figure must pass the **diagram doctrine**, enforced as a review axis on the Docs Lane:
 

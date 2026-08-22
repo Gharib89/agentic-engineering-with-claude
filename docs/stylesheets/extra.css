@@ -24,8 +24,8 @@
   --md-accent-fg-color: #0aa2d3;
 }
 
-/* Eli5 Register devices (ADR-0003): kicker pills, labeled cards, and inline
-   SVG figures. Material variables only — no new fonts, no palette changes. */
+/* Eli5 Register devices (ADR-0003): kicker pills and labeled cards.
+   Material variables only — no new fonts, no palette changes. */
 
 .md-typeset .guide-kicker {
   display: inline-block;
@@ -55,19 +55,3 @@
   letter-spacing: 0.04em;
 }
 
-/* Inline SVG figures scale to the column; the caption carries the claim. */
-.md-typeset figure.guide-figure {
-  display: block;
-  margin: 1.2rem auto;
-  max-width: 36rem;
-}
-.md-typeset .guide-figure svg {
-  max-width: 100%;
-  height: auto;
-}
-.md-typeset .guide-figure figcaption {
-  max-width: none;
-  font-size: 0.7rem;
-  color: var(--md-default-fg-color--light);
-  text-align: center;
-}
