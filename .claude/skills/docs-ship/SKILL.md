@@ -52,6 +52,16 @@ plugin:
 
 - Plugin present (local sessions): invoke the `excalidraw-diagram` skill;
   its own gate and per-frame render verification are the diagram check.
+  The render review holds an **alignment bar**: every coordinate derives
+  from measured geometry — a box center, a row gap, the export padding.
+  Flow shapes share one centerline so arrows run middle-to-middle;
+  annotations sit outside the row, placed after it. Arrows leave and
+  enter element centers, so give a cluster a center element to bind to.
+  A comparison splits symmetric — inner gap twice the export padding,
+  divider at its midpoint — with corresponding stages on shared rows.
+  Every adjacency that reads as connected gets a drawn, labeled arrow.
+  A render that misses the bar goes back to the generator for a
+  geometric fix.
 - Plugin absent (every cloud fire): the diagram cannot be verified, so the
   ticket is a **blocked hand-off** (below).
 
@@ -73,8 +83,8 @@ Markdown lint and spelling run in CI; the strict build is the local gate.
 Invoke the `code-review` skill on the branch diff — Spec axis: the ticket;
 Standards axis: `docs/contributing/writing-standards.md`; and, when the diff
 adds or changes figures, Diagram axis: the diagram doctrine in
-`docs/adr/0003-eli5-register.md`. Fix every finding or disposition it with a
-reason, then re-run the step 4 gate.
+`docs/adr/0003-eli5-register.md` plus step 3's alignment bar. Fix every
+finding or disposition it with a reason, then re-run the step 4 gate.
 
 **Done when** every axis reports clean or every finding is dispositioned.
 
