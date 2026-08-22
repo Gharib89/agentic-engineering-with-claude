@@ -47,7 +47,7 @@ One instrument measures one dimension, and whatever it cannot see, the agent wil
 ![On the left one instrument measures the numbers while the layout goes unmeasured, and the check still reports green; on the right a second instrument measures the layout, so green means both dimensions held.](../assets/diagrams/paired-instruments.svg#only-light)
 ![On the left one instrument measures the numbers while the layout goes unmeasured, and the check still reports green; on the right a second instrument measures the layout, so green means both dimensions held.](../assets/diagrams/paired-instruments.dark.svg#only-dark)
 
-*Two cheap instruments with different blind spots beat one stretched to cover everything.*
+*One instrument reports green over a dimension it never measured; a second makes green mean both.*
 
 So **name what your medium cannot see, then close the gap with a second instrument.** Write the pair into the note taped to the desk, so the loop is "both checks pass", not "the check I reached for".
 
