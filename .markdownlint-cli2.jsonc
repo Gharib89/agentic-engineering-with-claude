@@ -9,8 +9,10 @@
     // Material admonition bodies are indented 4 spaces; the rule would
     // misread them as inconsistent code-block style.
     "MD046": false,
-    // Eli5 Register kicker pills (ADR-0003) are spans. Only that element.
-    "MD033": { "allowed_elements": ["span"] }
+    // Kicker pills are spans (ADR-0003). The side-by-side card grid the
+    // pilot gate deferred to Chapter 3 is Material's own `grid cards` div.
+    // Those two elements only.
+    "MD033": { "allowed_elements": ["span", "div"] }
   },
   "globs": ["**/*.md"],
   // .claude/skills/** carries vendored skill copies — derived files that
