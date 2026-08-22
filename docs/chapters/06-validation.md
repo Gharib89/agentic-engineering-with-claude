@@ -7,7 +7,7 @@ A change is done when the project's own evidence says so: the proof photo, taken
 
 ## 1. The proof photo is the best one the agent can take alone
 
-Evidence climbs rungs: a type check proves coherence in milliseconds, a unit test proves one unit does what its author meant, an end-to-end run proves the assembled system behaves, a live instance proves the change survives reality.
+Evidence climbs rungs: a type check proves coherence in milliseconds, a unit test proves one unit does what its author meant, an end-to-end run proves the system behaves, a live instance proves the change survives reality.
 
 ![The verification ladder: types prove coherence in milliseconds, unit tests prove intent in seconds, end-to-end runs prove behavior in minutes, a live instance proves reality — evidence strengthens climbing up, feedback cheapens climbing down](../assets/diagrams/verification-ladder.svg#only-light)
 ![The verification ladder: types prove coherence in milliseconds, unit tests prove intent in seconds, end-to-end runs prove behavior in minutes, a live instance proves reality — evidence strengthens climbing up, feedback cheapens climbing down](../assets/diagrams/verification-ladder.dark.svg#only-dark)
@@ -19,18 +19,19 @@ So **your Verification Medium is the highest rung the agent can climb with no hu
 !!! example "this repo — a strict build below, the live site above"
     In this repo — the Guide's own source, and one of its Reference Repos —
     two rungs carry the work: `mkdocs build --strict` in seconds, and the
-    published site, fetched after every merge.
+    published site, which the lane fetches after every merge to confirm the
+    new text is served. No human watched either one.
 
 ## 2. A verdict has three answers, not two
 
-Pass and fail are one value short: *your change is wrong* and *the instrument broke* wear the same red, and an agent that cannot tell them apart burns its fresh legs rewriting code that was never broken.
+Pass and fail are one value short: *your change is wrong* and *the instrument broke* wear the same red, and an agent that cannot tell them apart burns its context rewriting code that was never broken.
 
 ![Two faults, a failed assertion and an unreachable host, both report exit 1 on the left, and that one verdict routes to rewriting the code; on the right each fault reports its own exit code, routing one to fixing the change and the other to fixing the instrument.](../assets/diagrams/three-valued-verdict.svg#only-light)
 ![Two faults, a failed assertion and an unreachable host, both report exit 1 on the left, and that one verdict routes to rewriting the code; on the right each fault reports its own exit code, routing one to fixing the change and the other to fixing the instrument.](../assets/diagrams/three-valued-verdict.dark.svg#only-dark)
 
 *One red for both faults sends the agent after working code; a verdict per fault routes each to its real fix.*
 
-So **make every check answer three ways — clean, your bug, instrument broken — in signals a program can route on.** Distinct exit codes are the classic tool; documented output markers work where exit codes are taken. Each class has one next move: proceed, fix the change, or fix the instrument — never the code.
+So **make every check answer three ways — clean, your bug, instrument broken — in signals a program can route on.** Distinct exit codes are the classic tool; documented output markers work where they are taken. Each class has one next move: proceed, fix the change, or fix the instrument — never the code.
 
 !!! example "crm — an expired token is not a failing command"
     `crm`, a command-line client for Microsoft Dynamics 365, runs its
@@ -46,9 +47,9 @@ One instrument measures one dimension, and whatever it cannot see, the agent wil
 ![On the left one instrument measures the numbers while the layout goes unmeasured, and the check still reports green; on the right a second instrument measures the layout, so green means both dimensions held.](../assets/diagrams/paired-instruments.svg#only-light)
 ![On the left one instrument measures the numbers while the layout goes unmeasured, and the check still reports green; on the right a second instrument measures the layout, so green means both dimensions held.](../assets/diagrams/paired-instruments.dark.svg#only-dark)
 
-*Two cheap instruments with different blind spots beat one stretched into an oracle.*
+*Two cheap instruments with different blind spots beat one stretched to cover everything.*
 
-So **name what your medium cannot see, then close the gap with a second instrument.** Write the pair into the note taped to the desk, so the loop is "both checks pass" — not "the check I reached for passes".
+So **name what your medium cannot see, then close the gap with a second instrument.** Write the pair into the note taped to the desk, so the loop is "both checks pass", not "the check I reached for".
 
 !!! example "cc-otel — a screenshot cannot read the numbers"
     `cc-otel`, a telemetry project landing Claude Code usage data in Power BI
@@ -67,12 +68,12 @@ So **record each known lie next to the check it belongs to, the day it is found*
     `mkdocs build --strict` verifies structure, not rendering: an admonition
     body indented three spaces instead of four builds clean and renders as a
     plain paragraph. That lie lives in the repo's
-    [docs-tooling notes](../agents/docs-tooling.md), and it is why diagram
+    [docs-tooling page](../agents/docs-tooling.md), and it is why diagram
     work carries its own render check.
 
 ## 5. From verified to reviewed
 
-A work order that reaches here carries evidence, not claims: the highest rung green, verdicts three-valued, blind spots paired over, known lies on record. What it lacks is judgment — no check can say whether the change should exist, or matches what the work order meant. [Chapter 7](07-review-and-merge.md) is that gate, and it gets stronger as everything else speeds up.
+A work order that reaches here carries evidence, not claims: the highest rung green, verdicts three-valued, blind spots paired over, known lies on record. What it lacks is judgment — no check can say whether the change should exist or matches the work order. [Chapter 7](07-review-and-merge.md) is that gate, and it gets stronger as everything else speeds up.
 
 ## Real names
 
@@ -84,4 +85,4 @@ Every picture this Chapter used, anchored to its real term:
 | The ladder | The rungs of evidence a project can check |
 | The work order | The ticket |
 | The note taped to the desk | `CLAUDE.md` — standing project instructions |
-| Fresh legs | The **Smart Zone** |
+| The instrument | The check itself — whatever returns the verdict |
