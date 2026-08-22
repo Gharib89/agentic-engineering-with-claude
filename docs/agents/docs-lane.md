@@ -4,7 +4,7 @@ This repo's shipping workflow: one ticket per run, driven end to end by the cust
 
 ## The lane
 
-A run claims the ticket, isolates on a branch, writes the change, then proves it: `mkdocs build --strict` — the Verification Medium for the site — plus a diagram render check when the ticket touches diagrams, then a two-axis review (Spec axis: the ticket; Standards axis: [writing standards](../contributing/writing-standards.md)) and CI. When review and CI pass, the agent squash-merges on its own — the policy [ADR-0002](../adr/0002-auto-merge-docs-lane.md) records — and confirms the change on the live Pages URL. Auto-merge is what lets a cloud routine deliver Chapters unattended.
+A run claims the ticket, isolates on a branch, writes the change, then proves it: `mkdocs build --strict` — the Verification Medium for the site — plus a diagram render check when the ticket touches diagrams, then review (Spec axis: the ticket; Standards axis: [writing standards](../contributing/writing-standards.md); and, when the diff adds or changes figures, a Diagram axis: the diagram doctrine in [ADR-0003](../adr/0003-eli5-register.md)) and CI. When review and CI pass, the agent squash-merges on its own — the policy [ADR-0002](../adr/0002-auto-merge-docs-lane.md) records — and confirms the change on the live Pages URL. Auto-merge is what lets a cloud routine deliver Chapters unattended.
 
 ## Vendored skills
 

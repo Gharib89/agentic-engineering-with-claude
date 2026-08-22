@@ -2,7 +2,7 @@
 name: docs-ship
 description: >-
   Ship one docs ticket through the Docs Lane end to end — claim, isolate,
-  write, strict build, two-axis review, PR, auto-merge (ADR-0002). Use when
+  write, strict build, review axes, PR, auto-merge (ADR-0002). Use when
   the user asks to ship a docs ticket, or on a cloud routine fire (pick the
   oldest open `ready-for-agent` ticket, one per fire).
 ---
@@ -68,13 +68,15 @@ Markdown lint and spelling run in CI; the strict build is the local gate.
 
 **Done when** it exits 0.
 
-## 5 · Two-axis review
+## 5 · Review axes
 
 Invoke the `code-review` skill on the branch diff — Spec axis: the ticket;
-Standards axis: `docs/contributing/writing-standards.md`. Fix every finding
-or disposition it with a reason, then re-run the step 4 gate.
+Standards axis: `docs/contributing/writing-standards.md`; and, when the diff
+adds or changes figures, Diagram axis: the diagram doctrine in
+`docs/adr/0003-eli5-register.md`. Fix every finding or disposition it with a
+reason, then re-run the step 4 gate.
 
-**Done when** both axes report clean or every finding is dispositioned.
+**Done when** every axis reports clean or every finding is dispositioned.
 
 ## 6 · PR and auto-merge
 
