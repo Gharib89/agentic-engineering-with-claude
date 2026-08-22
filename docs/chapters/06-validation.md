@@ -26,8 +26,8 @@ So **your Verification Medium is the highest rung the agent can climb with no hu
 
 Pass and fail are one value short: *your change is wrong* and *the instrument broke* wear the same red, and an agent that cannot tell them apart burns its context rewriting code that was never broken.
 
-![Two faults, a failed assertion and an unreachable host, both report exit 1 on the left, and that one verdict routes to rewriting the code; on the right each fault reports its own exit code, routing one to fixing the change and the other to fixing the instrument.](../assets/diagrams/three-valued-verdict.svg#only-light)
-![Two faults, a failed assertion and an unreachable host, both report exit 1 on the left, and that one verdict routes to rewriting the code; on the right each fault reports its own exit code, routing one to fixing the change and the other to fixing the instrument.](../assets/diagrams/three-valued-verdict.dark.svg#only-dark)
+![Two faults, a failed assertion and an unreachable host, both report exit 1 on the left, and that one verdict routes to rewriting the code; on the right each fault reports its own exit code, routing one to fixing the change and the other to fixing the instrument; a clean run reports exit 0 and routes to proceed in both halves.](../assets/diagrams/three-valued-verdict.svg#only-light)
+![Two faults, a failed assertion and an unreachable host, both report exit 1 on the left, and that one verdict routes to rewriting the code; on the right each fault reports its own exit code, routing one to fixing the change and the other to fixing the instrument; a clean run reports exit 0 and routes to proceed in both halves.](../assets/diagrams/three-valued-verdict.dark.svg#only-dark)
 
 *One red for both faults sends the agent after working code; a verdict per fault routes each to its real fix.*
 
