@@ -1,97 +1,119 @@
+<!-- markdownlint-disable MD041 -->
+<span class="guide-kicker">Chapter 3 · Cards, plugs, and hands</span>
+
 # Equipping the agent
 
-[Chapter 2](02-project-setup.md) built the project's memory — the files that tell an agent what the project is and how it decides. Memory alone still leaves the agent working half-blind: it recalls libraries as they looked at training time, it cannot see behind your domain's walls, and it reinvents its process every session. This Chapter is about capability — giving the agent eyes and hands: skills that package process, documentation servers that replace recall with lookup, custom tools where the domain demands them, and the context discipline that keeps all of it affordable.
+[Chapter 2](02-project-setup.md) gave the agent a memory, and memory alone leaves it half-blind: it recalls libraries as they were at training time and cannot see what your domain hides. Equipping is the fix, and every choice in it asks one question — what rides in the agent's one window, and when?
 
-## One window, many sources
+## 1. Everything arrives through one window
 
-Everything an agent knows in a session arrives through one finite context window, so equipping an agent is really curating what flows into that window, and when. The sources are few and nameable: the always-loaded front door (`CLAUDE.md`), the project memory behind it read on demand (the glossary, the ADR log, the standards doc), skills that load when a task matches them, MCP servers that fetch live knowledge from outside the repo, and tools whose results return as observations.
+Everything the agent knows this session came through one finite window.
 
-![Agent context sources: CLAUDE.md always loaded; the glossary, ADR log, and standards doc read on demand; skills loaded on match; MCP servers fetched live; custom tools returning observations — all feeding one context window](../assets/diagrams/agent-context-sources.svg#only-light)
-![Agent context sources: CLAUDE.md always loaded; the glossary, ADR log, and standards doc read on demand; skills loaded on match; MCP servers fetched live; custom tools returning observations — all feeding one context window](../assets/diagrams/agent-context-sources.dark.svg#only-dark)
+![Agent context sources: CLAUDE.md always loaded; the glossary, ADR log, and standards doc read on demand; skills loaded on match; MCP servers fetched live; custom tools returning observations — all feeding one context window.](../assets/diagrams/agent-context-sources.svg#only-light)
+![Agent context sources: CLAUDE.md always loaded; the glossary, ADR log, and standards doc read on demand; skills loaded on match; MCP servers fetched live; custom tools returning observations — all feeding one context window.](../assets/diagrams/agent-context-sources.dark.svg#only-dark)
 
-The picture is worth holding because every equipment decision in this Chapter is the same decision asked again: does this knowledge ride along always, load on demand, or get fetched at the moment of need? The later it loads, the less it costs the window — Chapter 2's "size is a tax" rule, extended from one file to everything the agent touches.
+*Every source feeds one window: the note always, project memory on demand, recipe cards on match, plugs and hands on need.*
 
-## Package the process: skills
+The later a thing loads, the less window it costs — [Chapter 2](02-project-setup.md)'s size-is-a-tax rule, past one file. Three of those sources are equipment you add:
 
-The first time you walk an agent through a multi-step procedure, the explanation lives in the chat and dies with it; the second time, you are already retyping it worse. A procedure worth running twice belongs in a **skill**: a versioned instruction file the agent loads when a matching task arrives. That single move changes the procedure's nature — process stops being something you prompt well and becomes an artifact: written once, reviewed like code, improved by diff, shared across the team. In Claude Code the mechanics are [agent skills](https://code.claude.com/docs/en/skills); the principle is older than the feature — checklists beat memory.
+<div class="grid cards" markdown>
 
-A skill differs from the front door by load time, not by content type. `CLAUDE.md` carries the standing rules every session needs; a skill carries one procedure, and costs almost nothing — only its short description rides along so matching can happen. When a rule keeps applying everywhere, it belongs in the front door; when it only applies while shipping a release or triaging a bug, it belongs in a skill.
+- **Recipe card**
 
-You also rarely start from zero. Published skill collections — Matt Pocock's, the origin of this Guide's toolkit, installable in one move with his [setup skill](https://www.aihero.dev/skills-setup-matt-pocock-skills) — are inspiration and raw material: adopt what is good, build what is missing, and where a published skill and your proven practice differ, your practice wins.
+    ---
 
-!!! example "this repo — the Docs Lane is one skill"
-    This repo — the Guide's own source, and one of its Reference Repos —
-    ships every Guide ticket through [`docs-ship`](../agents/docs-lane.md), a custom-made project skill
-    that packages the whole lane: claim the ticket, isolate on a branch,
-    write, gate on the strict build, run the two-axis review, merge. The
-    process is a file, so changing the process is a PR — when the lane
-    learns a lesson, the skill's diff is the lesson, reviewed like any
-    other change.
+    The agent does not know *how your team* does this. Loads on match.
 
-## Look it up, never recall: documentation MCP servers
+- **Universal plug**
 
-An agent's built-in knowledge of every library, SDK, and API froze at its training cutoff; the libraries kept moving. Asked from memory, the agent answers with the most dangerous kind of wrong: plausible, confident, and shaped like last year's API. The fix is structural, not exhortative — wire current documentation in as a tool the agent can call, then make lookup the standing rule. [MCP servers](https://code.claude.com/docs/en/mcp) are the wiring: context7 serves versioned library docs, Microsoft Learn serves the Microsoft and Azure estate, and one line in the front door — a library question means a lookup, never recall — turns the tool into a habit.
+    ---
 
-The why is the same asymmetry as every guardrail in Chapter 2: a hallucinated API call costs a debugging session downstream; a lookup costs seconds. Give the agent eyes on the current docs and the whole class of "it compiled, but that parameter was renamed two versions ago" disappears.
+    Its knowledge froze at the training cutoff. Fetches on need.
+
+- **The hands**
+
+    ---
+
+    It cannot *see* what proves the work. Runs, and reports back.
+
+</div>
+
+## 2. A procedure worth running twice becomes a recipe card
+
+Explain a multi-step procedure in the chat and it dies with the chat. Write the card instead: a **skill** ([agent skills](https://code.claude.com/docs/en/skills) in Claude Code) is a recipe card the agent picks up when a matching task arrives — and only its short description rides along, so matching is nearly free. Process stops being something you prompt well and becomes an artifact, reviewed like code.
+
+You rarely start from zero: a bought skill pack — [Matt Pocock's collection](https://www.aihero.dev/skills-setup-matt-pocock-skills), the origin of this Guide's toolkit — is raw material, and where a published skill and your practice differ, yours wins.
+
+!!! example "this repo — the Docs Lane is one recipe card"
+    This repo ships every ticket through [`docs-ship`](../agents/docs-lane.md) — one skill
+    holding the whole lane, so changing the process is a PR.
+
+## 3. Look it up; never recall
+
+Asked from memory, the agent gives the most dangerous kind of wrong: plausible, confident, shaped like last year's API. The fix is structural, not exhortative — wire current documentation in as a universal plug, then make lookup the standing rule. [MCP servers](https://code.claude.com/docs/en/mcp) are the wiring: context7 for versioned library docs, Microsoft Learn for the Microsoft and Azure estate. One line on the note — *a library question means a lookup, never recall* — turns the plug into a habit.
 
 !!! example "crm — Dynamics 365 answers come from Microsoft Learn"
-    `crm`, a command-line client for Microsoft Dynamics 365, lives against
-    one of the largest versioned API surfaces there is — Web API endpoints,
-    FetchXML, metadata queries. Agents working on it resolve those questions
-    through the Microsoft Learn MCP server, so a query the agent writes
-    matches the documentation as it stands today, not as the training data
-    remembers it.
+    `crm`, a command-line client for Microsoft Dynamics 365, works against
+    one of the largest versioned API surfaces there is. Its agents resolve
+    Web API, FetchXML, and metadata questions through the Microsoft Learn
+    MCP server, so the query matches today's docs.
 
-## Build the missing tool
+## 4. When the domain hides the surface, build the hands
 
-Skills package process and MCP servers fetch knowledge, but some feedback exists only behind a surface no off-the-shelf tool exposes — a proprietary renderer, an internal system, a screen. When the project's Verification Medium lives behind such a wall, the loop from [Chapter 1](01-why-this-works.md) breaks at exactly the step that matters: the agent can change the work but cannot see the result. That is the signal to build a **custom tool** — the smallest bridge that turns "the agent cannot see this" into a command the agent can run.
+Some feedback sits behind a surface no off-the-shelf tool exposes — a proprietary renderer, an internal system, a screen. When the project's proof photo, its **Verification Medium**, is behind that wall, [Chapter 1](01-why-this-works.md)'s loop breaks at the step that matters: the agent can change the work but cannot see the result. Build the hands — the smallest bridge that turns "the agent cannot see this" into a command it can run. Keep it boring — one job, one readable result.
 
-Keep the bridge boring: command-line shaped, doing one thing, returning something an agent can read — an exit code, a file, an image. The tool is not a product; it is a prosthetic eye or hand, and its whole value is measured by the feedback loop it closes.
-
-!!! example "cc-otel — a screenshot bridge gives the agent eyes on Power BI"
+!!! example "cc-otel — a screenshot bridge closes the loop on Power BI"
     `cc-otel`, a telemetry project that lands Claude Code usage data in
-    Power BI reports, has a Verification Medium no test framework can reach:
-    whether a report page *looks* right after a change. Its answer is a
-    small custom bridge that renders a report page and hands back a
-    screenshot. With that one tool, visual checking becomes a loop the agent
-    runs alone — change the report, render, inspect the image, iterate —
-    instead of a human staring at dashboards after every edit.
+    Power BI reports, has a Verification Medium no test framework reaches:
+    whether a report page *looks* right. Its bridge renders the page and
+    returns a screenshot, so visual checking becomes a loop.
 
-## Delegate noise, not size
+## 5. Send a runner for the noisy reading
 
-Everything this Chapter adds competes for the same context window, and the window is where the agent thinks. The discipline that keeps it spendable is not rationing information — an under-informed agent guesses, and guesses are costlier than tokens. The discipline is choosing where raw volume lands: work that must *read a lot to conclude a little* — searching a codebase, digesting long documentation, sweeping logs — goes to a subagent, which burns its own context window and returns only the conclusion. The main session keeps the goal, the decisions, and the diff.
+The window is where the agent thinks, and the discipline is not rationing information: an under-informed agent guesses, and guesses cost more than tokens. It is choosing where raw volume lands: work that must *read a lot to conclude a little*, like searching a codebase or sweeping logs, goes to a runner sent to fetch, which burns its own window and returns the conclusion.
 
-Size alone is no reason to delegate; a long task whose every step informs the next belongs in the main thread, however big. Noise is the reason — pages read per sentence of conclusion. Delegate the noisy work, keep the decisions.
+![Read it in the room and the whole pile lands in the main window; send a runner and only the conclusion does.](../assets/diagrams/delegated-reading.svg#only-light)
+![Read it in the room and the whole pile lands in the main window; send a runner and only the conclusion does.](../assets/diagrams/delegated-reading.dark.svg#only-dark)
+
+*Read it in the room and the whole pile lands in the main window; send a runner and only the conclusion does.*
+
+Noise, not size, is the trigger — a long task whose steps inform each other stays in the main thread, however big. What earns a runner is pages read per sentence of conclusion.
 
 !!! example "this repo — the review reads everything so the shipper doesn't"
-    The Docs Lane's two-axis review fans out as subagents: one reads the
-    full diff against the ticket (Spec axis), one against the writing
-    standards (Standards axis). Each burns its own context on the raw
-    reading and returns a short list of findings. The shipping session never
-    loads the review's reading — it acts on the findings, keeping its own
-    window on the ticket.
+    The Docs Lane's review fans out as runners: one reads the whole diff
+    against the ticket, one against the writing standards. Each returns a
+    short list of findings, and the shipper acts on them without reading.
 
-## Size the work to the smart zone
+## 6. Stop while the legs are fresh
 
-Delegation protects the window from noise; nothing protects it from time. Early in a session the agent is in its **Smart Zone** — sharp, careful, recall good. As the session grows it drifts into a dumb zone: sloppier, more forgetful, same model, same harness, just more context. The mechanism is a per-token [attention budget](https://www.aihero.dev/ai-coding-dictionary/attention-budget) — [Anthropic's term](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — that does not grow when the window does, so every token added dilutes the influence of every token already there. The resulting [degradation](https://www.aihero.dev/ai-coding-dictionary/attention-degradation) is gradual — no error, no threshold, each turn only slightly worse than the last — and the [zones do not track the window limit](https://www.aihero.dev/ai-coding-dictionary/smart-zone): a session can be deep in the dumb zone with most of the window still free.
+A runner protects the window from noise; nothing protects it from time. Early on the agent has fresh legs — the **Smart Zone**: sharp, careful, recall good. Later it drifts into a dumb zone: sloppier, more forgetful — same model, same harness, just more context. The mechanism is a per-token [attention budget](https://www.aihero.dev/ai-coding-dictionary/attention-budget) ([Anthropic's term](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)) that does not grow with the window, so every added token dilutes the rest. The [degradation](https://www.aihero.dev/ai-coding-dictionary/attention-degradation) is gradual — no error, no threshold — and the [zones do not track the window limit](https://www.aihero.dev/ai-coding-dictionary/smart-zone).
 
-![Quality falls long before the window fills: an output-quality curve runs high through the smart zone, drops where the felt signals appear — relitigating settled decisions, forgetting instructions, sloppier edits — and is flat through the dumb zone while the window is still free of the window-limit wall; below, the controls ranked — 1 /clear loops back to a fresh start, 2 /compact loops back keeping what you chose to preserve, 3 autocompact runs into the wall at a moment you did not pick](../assets/diagrams/smart-zone.svg#only-light)
-![Quality falls long before the window fills: an output-quality curve runs high through the smart zone, drops where the felt signals appear — relitigating settled decisions, forgetting instructions, sloppier edits — and is flat through the dumb zone while the window is still free of the window-limit wall; below, the controls ranked — 1 /clear loops back to a fresh start, 2 /compact loops back keeping what you chose to preserve, 3 autocompact runs into the wall at a moment you did not pick](../assets/diagrams/smart-zone.dark.svg#only-dark)
+![An output-quality curve runs high through the smart zone, drops where the felt signals appear, and stays low through the dumb zone while the window is still free of its limit; below, the controls ranked 1 /clear, 2 /compact, 3 autocompact.](../assets/diagrams/smart-zone.svg#only-light)
+![An output-quality curve runs high through the smart zone, drops where the felt signals appear, and stays low through the dumb zone while the window is still free of its limit; below, the controls ranked 1 /clear, 2 /compact, 3 autocompact.](../assets/diagrams/smart-zone.dark.svg#only-dark)
 
-Because there is no error, the skill is reading the felt signals: the agent relitigates decisions that were settled turns ago, forgets standing instructions it followed at the start, and its edits get sloppier. Numbers exist, but they openly disagree — the AI Hero dictionary places the dumb zone's onset around [125–150K tokens](https://www.aihero.dev/ai-coding-dictionary/smart-zone), the ace-fca practice keeps utilization to [40–60% of the window](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md), and the [NoLiMa benchmark](https://arxiv.org/abs/2502.05167) measures real degradation from as little as 32K — Chroma's [Context Rot study](https://www.trychroma.com/research/context-rot) finds the same non-uniformity across eighteen models. Treat the disagreement as the finding: the boundary is task-dependent, and it arrives long before the window fills.
+*Quality falls long before the window fills: the dumb zone arrives with most of the window still free.*
 
-The controls rank by what they preserve and who picks the moment. [`/clear`](https://www.aihero.dev/ai-coding-dictionary/clearing) when nothing needs to carry: it costs nothing, and the junk goes with the rest. An intentional [`/compact`](https://www.aihero.dev/ai-coding-dictionary/compaction) at a boundary you choose when continuity must carry: lossy by design, but steerable — you pick the moment and say what to preserve. [Autocompact](https://www.aihero.dev/ai-coding-dictionary/autocompact) is the seatbelt you do not let fire: the same loss at a moment you did not choose, with the model deciding which of your decisions were worth keeping. Command mechanics live in the [Claude Code docs](https://code.claude.com/docs/en/context-window).
+So you read the felt signals instead: relitigated decisions, forgotten instructions, sloppier edits. Published numbers disagree — the [NoLiMa benchmark](https://arxiv.org/abs/2502.05167) measures degradation from as little as 32K, the [AI Hero dictionary](https://www.aihero.dev/ai-coding-dictionary/smart-zone) puts the onset near 125–150K, [ace-fca](https://github.com/humanlayer/advanced-context-engineering-for-coding-agents/blob/main/ace-fca.md) holds utilization to 40–60% of the window, and Chroma's [Context Rot](https://www.trychroma.com/research/context-rot) finds the same across eighteen models — so the disagreement is the finding: the boundary is task-dependent.
 
-A task bigger than one Smart Zone does not get a longer session — it splits at a natural boundary, and the work carries across the [handoff](https://www.aihero.dev/ai-coding-dictionary/handoff) in a **Handoff Artifact**: a document written for a reader with zero context, recording what was decided *and why*, judged by whether the next session relitigates what the last one settled. This closes into a rule you can test: a [ticket](https://www.aihero.dev/ai-coding-dictionary/ticket) is sized to complete within one Smart Zone — sessions that routinely degrade before the work is done mean the tickets are too big; sessions that spend most of their window on setup mean they are too small. [Chapter 4](04-from-idea-to-plan.md) builds on exactly this: [specs](https://www.aihero.dev/ai-coding-dictionary/spec) and tickets are [Handoff Artifacts](https://www.aihero.dev/ai-coding-dictionary/handoff-artifact), written by one session to direct the next.
+The controls rank by who picks the moment: [`/clear`](https://www.aihero.dev/ai-coding-dictionary/clearing) when nothing needs to carry, an intentional [`/compact`](https://www.aihero.dev/ai-coding-dictionary/compaction) when it does, and [autocompact](https://www.aihero.dev/ai-coding-dictionary/autocompact), which takes the same loss at a moment you did not pick. [Mechanics](https://code.claude.com/docs/en/context-window) live in the docs.
 
-!!! example "this repo — tickets sized to the smart zone"
-    This repo ships every Guide ticket through a docs-ship run that handles
-    exactly one ticket, so each ticket gets a fresh session and the sharpest part of
-    that session's window. [Wayfinder](https://www.aihero.dev/skills-wayfinder) Map child tickets are cut to the same
-    measure: one session each. The rule stays testable in both directions —
-    a ticket a run cannot finish before quality slips gets split into
-    smaller tickets, and tickets that are mostly setup get merged.
+## 7. Size the work order to one set of fresh legs
 
-## From equipped to directed
+A task bigger than one set of fresh legs does not get a longer session. It splits at a natural boundary, and the work crosses the [handoff](https://www.aihero.dev/ai-coding-dictionary/handoff) as a relay baton: a **Handoff Artifact** written for a reader with zero context, recording what was decided *and why*. The rule is testable — orders too big degrade before the work is done, orders too small spend their window on setup. Every Guide ticket ships through a run that handles exactly one of them. That baton is where [Chapter 4](04-from-idea-to-plan.md) starts: [specs](https://www.aihero.dev/ai-coding-dictionary/spec) and [tickets](https://www.aihero.dev/ai-coding-dictionary/ticket) are [Handoff Artifacts](https://www.aihero.dev/ai-coding-dictionary/handoff-artifact) too, written by one session to direct the next.
 
-An equipped agent can look up what it does not know, run the processes the team trusts, see the surfaces the domain hides, keep its head clear while doing so — and stop while still sharp, handing the rest to a fresh session. What it cannot do is decide what to build. [Chapter 4](04-from-idea-to-plan.md) turns to exactly that — shaping an idea into a spec and tickets an agent can execute without you in the room.
+## Real names
+
+| The picture | The real name |
+| --- | --- |
+| The note taped to the desk | `CLAUDE.md` |
+| The shared phrasebook | `CONTEXT.md`, the project glossary |
+| The decision diary | The ADR log |
+| The recipe card | A **skill** |
+| The bought skill pack | A plugin |
+| The universal plug | An **MCP server** |
+| The hands | A custom tool, usually a small CLI |
+| The proof photo | The **Verification Medium** |
+| The runner sent to fetch | A subagent |
+| Fresh legs | The **Smart Zone** |
+| The relay baton | A **Handoff Artifact** |
+| The work order | A ticket |
