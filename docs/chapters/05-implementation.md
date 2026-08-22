@@ -14,7 +14,7 @@ Loops come in radii: a failing test answers in seconds, the build gate in minute
 
 *The tighter the gate, the more iterations fit in one session.*
 
-Order matters as much as radius. A test written first is the work order translated into something that runs, so **"done" becomes red turning green, not the agent's own claim**. Written afterwards by the agent that wrote the code, it checks what the code does — and passes by construction.
+Order matters as much as loop size. A test written first is the work order translated into something that runs, so **"done" becomes red turning green, not the agent's own claim**. Written afterwards, by the agent that wrote the code, it passes by construction.
 
 !!! example "crm — the work order, restated as a run"
     `crm`, a command-line client for Microsoft Dynamics 365, ships every
@@ -41,7 +41,7 @@ It is also what makes [Chapter 7](07-review-and-merge.md)'s review axis mean any
 
 ## 3. Every line traces to the work order
 
-An agent asked to fix one thing will happily improve five more, and the rule still says no: **a change contains only lines that trace to its work order.** Match the surrounding style; record an adjacent problem as a new work order. The rule lives on the note taped to the desk from [Chapter 2](02-project-setup.md), and the why is where the cost moved: implementation is cheap now, review attention is not, and every extra line bills the reviewer for noise.
+An agent asked to fix one thing will happily improve five more, and the rule still says no: **a change contains only lines that trace to its work order.** Match the surrounding style; record an adjacent problem as a new work order. The rule lives on the note taped to the desk — `CLAUDE.md`, from [Chapter 2](02-project-setup.md). The why is where the cost moved: implementation is cheap, review attention is not, and every extra line bills the reviewer for noise.
 
 !!! example "this repo — the Spec axis reads every diff against the ticket"
     The Docs Lane reviews each diff along two axes before merge. The Spec
@@ -52,12 +52,12 @@ An agent asked to fix one thing will happily improve five more, and the rule sti
 
 [Chapter 1](01-why-this-works.md) said an agent struggles exactly where a new hire would; module depth is what that cashes out to. A deep module — small interface, rich behavior behind it, in Ousterhout's sense in [*A Philosophy of Software Design*](https://web.stanford.edu/~ouster/cgi-bin/book.php) — lets the agent work at the surface: it reads the interface, calls it, and the implementation never enters its context. A shallow module hides nothing, so the agent reads through it, and through whatever that touches, until [fresh legs fade](03-equipping-the-agent.md#size-the-work-to-the-smart-zone).
 
-![A deep module lets the agent read one interface and stop; a shallow one makes it read through to what the interface hides, and through what that touches.](../assets/diagrams/module-depth-range.svg#only-light)
-![A deep module lets the agent read one interface and stop; a shallow one makes it read through to what the interface hides, and through what that touches.](../assets/diagrams/module-depth-range.dark.svg#only-dark)
+![A deep module lets the agent read one interface and stop, so the job fits one small context; a shallow one makes it read through to what the interface hides, and through what that touches, until the window fills.](../assets/diagrams/module-depth-range.svg#only-light)
+![A deep module lets the agent read one interface and stop, so the job fits one small context; a shallow one makes it read through to what the interface hides, and through what that touches, until the window fills.](../assets/diagrams/module-depth-range.dark.svg#only-dark)
 
 *How deep the modules are is how far the agent can navigate before it drowns.*
 
-Agent-written code drifts shallow on its own — one more wrapper, one more layer that hides nothing — because each shallow addition is the easy next token. The counterweight is the refactor beat plus a [codebase-design recipe card](https://www.aihero.dev/skills-codebase-design) to judge interfaces by.
+Agent-written code drifts shallow on its own, because each shallow addition is the easy next token. The counterweight is the refactor beat plus a [codebase-design recipe card](https://www.aihero.dev/skills-codebase-design) to judge interfaces by.
 
 !!! example "crm — seventy commands ride one deep engine"
     `crm` keeps every operation in its own module over one shared core
@@ -75,8 +75,8 @@ Every picture this Chapter used, anchored to its real term:
 
 | The picture | The real name |
 | --- | --- |
-| The work order | The ticket — one unit of specified work |
-| The recipe card | A skill — reusable instructions the agent loads on demand |
+| The work order | The ticket |
+| The recipe card | A skill — reusable instructions, loaded on demand |
 | The note taped to the desk | `CLAUDE.md` — standing project instructions |
-| Fresh legs | The **Smart Zone** — the early session where quality stays sharp |
+| Fresh legs | The **Smart Zone** — the sharp early session |
 | The proof photo | The **Verification Medium** |
