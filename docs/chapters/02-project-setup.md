@@ -26,7 +26,7 @@ Because it rides along on every prompt, its length taxes every piece of work. Th
 
 Agents mirror the vocabulary they are given. Call one concept three names and the agent uses all three. So the phrasebook defines each domain term once, and lists beside it the near-synonyms the project refuses.
 
-That refusal list turns vocabulary into a check: "use consistent terminology" is unenforceable, "these five words never appear" is a grep. Keep it in a `CONTEXT.md` at the repo root and grow it through the work: a missing term gets defined when a page needs it.
+That refusal list turns vocabulary into a check: "use consistent terminology" is unenforceable, "these five words never appear" is a grep. Keep it in a `GLOSSARY.md` at the repo root and grow it through the work: a missing term gets defined when a page needs it.
 
 ![Three names for one concept leave nothing to enforce; one name with the refused ones beside it leaves a word to grep for.](../assets/diagrams/one-name-per-thing.svg#only-light)
 ![Three names for one concept leave nothing to enforce; one name with the refused ones beside it leaves a word to grep for.](../assets/diagrams/one-name-per-thing.dark.svg#only-dark)
@@ -101,7 +101,7 @@ Every picture this Chapter used, anchored to its real term:
 | --- | --- |
 | The scaffold | The six artifacts that carry the project's memory |
 | The note taped to the desk | `CLAUDE.md` — standing project instructions |
-| The shared phrasebook | `CONTEXT.md` — the project glossary |
+| The shared phrasebook | `GLOSSARY.md` — the project glossary |
 | The decision diary | The ADR log |
 | The job board | The issue tracker |
 | A work order | A ticket — one issue carrying its goal, its checks, its blocking edges |

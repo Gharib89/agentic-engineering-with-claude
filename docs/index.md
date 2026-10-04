@@ -26,7 +26,7 @@ The whole method is one loop — idea, plan, implement, validate, review, delive
 
 ### Foundations
 
-The ground the loop stands on. Why clean architecture and clear context make agents effective ([Chapter 1](chapters/01-why-this-works.md)); how to scaffold a repo for agentic work — CLAUDE.md, CONTEXT.md, ADRs, an issue tracker, one canonical standards doc, guardrails ([Chapter 2](chapters/02-project-setup.md)); and how to equip the agent with skills, MCP servers, custom tools, and context discipline ([Chapter 3](chapters/03-equipping-the-agent.md)).
+The ground the loop stands on. Why clean architecture and clear context make agents effective ([Chapter 1](chapters/01-why-this-works.md)); how to scaffold a repo for agentic work — CLAUDE.md, GLOSSARY.md, ADRs, an issue tracker, one canonical standards doc, guardrails ([Chapter 2](chapters/02-project-setup.md)); and how to equip the agent with skills, MCP servers, custom tools, and context discipline ([Chapter 3](chapters/03-equipping-the-agent.md)).
 
 ### Idea to plan
 

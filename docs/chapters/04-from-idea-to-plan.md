@@ -85,6 +85,6 @@ Each picture above, in real terms:
 | The work order | A **ticket** — one self-contained unit of work |
 | The relay baton | The **Handoff Artifact** |
 | The proof photo | The **Verification Medium** |
-| The shared phrasebook | `CONTEXT.md`, the glossary |
+| The shared phrasebook | `GLOSSARY.md`, the glossary |
 | The decision diary | The ADR log |
 | The job board | The issue tracker |

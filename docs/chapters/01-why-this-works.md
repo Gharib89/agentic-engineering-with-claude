@@ -14,7 +14,7 @@ An agent is an engineer who joined the team this morning: capable, fast, and com
 
 *What one edit costs to find: a legible codebase asks the agent for one unit and its interface; a tangle asks for half the repo and starts with guesses.*
 
-Three files make that structure legible from the first prompt: the note taped to the desk (`CLAUDE.md`), the shared phrasebook (`CONTEXT.md`), and the decision diary (the ADR log). [Chapter 2](02-project-setup.md) sets them up.
+Three files make that structure legible from the first prompt: the note taped to the desk (`CLAUDE.md`), the shared phrasebook (`GLOSSARY.md`), and the decision diary (the ADR log). [Chapter 2](02-project-setup.md) sets them up.
 
 !!! example "crm — one command, one module, one place to work"
     `crm`, a command-line client for Microsoft Dynamics 365 and one of the
@@ -75,6 +75,6 @@ Every picture this Chapter used, anchored to its real term:
 | --- | --- |
 | The engineer who joined this morning | The agent: fast, capable, limited to what the project tells it |
 | The note taped to the desk | `CLAUDE.md` — standing project instructions |
-| The shared phrasebook | `CONTEXT.md` — the project glossary |
+| The shared phrasebook | `GLOSSARY.md` — the project glossary |
 | The decision diary | The ADR log |
 | The proof photo | The **Verification Medium** |
