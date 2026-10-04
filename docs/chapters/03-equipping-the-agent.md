@@ -106,7 +106,7 @@ Every picture, and its real name:
 | The picture | The real name |
 | --- | --- |
 | The note taped to the desk | `CLAUDE.md` |
-| The shared phrasebook | `CONTEXT.md`, the project glossary |
+| The shared phrasebook | `GLOSSARY.md`, the project glossary |
 | The decision diary | The ADR log |
 | The recipe card | A **skill** |
 | The bought skill pack | A plugin |

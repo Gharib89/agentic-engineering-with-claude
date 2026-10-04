@@ -43,7 +43,7 @@ isolation; switch it to the conventional name before the first commit.
 
 ## 3 · Write
 
-Hold `docs/contributing/writing-standards.md` and the `CONTEXT.md`
+Hold `docs/contributing/writing-standards.md` and the `GLOSSARY.md`
 vocabulary while writing — the Standards review axis in step 5 checks the
 diff against exactly those rules.
 
